@@ -9,7 +9,7 @@ function App() {
       <NavBar />
 
       {/* This placeholder pushes content down so it doesn't hide under the fixed navbar */}
-      <div id="hero" style={{ padding: "120px 2rem 4rem 2rem" }}>
+      <div id="main" style={{ padding: "120px 2rem 4rem 2rem" }}>
         <h1 style={{ color: "#61dafb", fontSize: "2.5rem", marginBottom: "1rem" }}>
           Jordan Tran/dev Space Is Live!
         </h1>
