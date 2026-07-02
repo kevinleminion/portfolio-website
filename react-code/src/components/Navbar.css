@@ -1,12 +1,12 @@
 .navbar {
     width: 100%;
-    background: #0a0f1f;
+    background: #000000;
     color: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(18, 165, 18, 0.15);
 }
 
 .navbar-container {

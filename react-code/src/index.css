@@ -1,3 +1,9 @@
+font-face {
+    font-family: 'LEMONMILK-MediumItalic';
+    src: url('./assets/fonts/LEMONMILK-MediumItalic.otf') format('opentype');
+    font-weight: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +11,6 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #363434;
     color: #333;
