@@ -5,7 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 // importing main components
-import NavBar from './components/navbar.jsx'
+import NavBar from './components/Navbar.jsx'
 
 function App() {
   return (
