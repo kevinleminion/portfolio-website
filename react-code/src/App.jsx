@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./components/Navbar"; // Double check the B is capital!
+import './index.css';
 
 function App() {
   return (

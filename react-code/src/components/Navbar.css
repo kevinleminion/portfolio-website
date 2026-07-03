@@ -1,3 +1,5 @@
+
+
 .navbar {
     width: 100%;
     background: #000000;
@@ -49,6 +51,7 @@
     display: flex;
     margin: 0;
     margin-left: 1.5rem;
+    gap: 2rem;
     padding: 0;
 
     font-family: 'BM Space', sans-serif;
