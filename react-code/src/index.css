@@ -8,6 +8,12 @@ This next section will be importing custom fonts to use.
 }
 
 @font-face {
+    font-family: 'LEMON-MILK-MEDIUM';
+    src: url('./assets/fonts/LEMONMILK-Medium.otf') format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
     font-family: 'FOT-Skip';
     src: url('./assets/fonts/FOT-Skip Std B.otf') format('opentype');
     font-weight: bold;
