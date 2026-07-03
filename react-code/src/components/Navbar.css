@@ -1,4 +1,20 @@
+@font-face {
+    font-family: 'LEMON-MILK-MEDIUM';
+    src: url('./assets/fonts/LEMONMILK-Medium.otf') format('opentype');
+    font-weight: normal;
+}
 
+@font-face {
+    font-family: 'BM Space';
+    src: url('./assets/fonts/BMSPA_.TTF') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Hiragino Mincho';
+    src: url('./assets/fonts/Hiragino Mincho Pro W6.otf') format('opentype');
+    font-weight: normal;
+}
 
 .navbar {
     width: 100%;
@@ -23,12 +39,13 @@
 .name{
     font-family: 'LEMON-MILK-MEDIUM', sans-serif;
 
-    scale: 200%;
+    scale: 300%;
 }
 
 .navbar a {
     color: inherit;
     text-decoration: none;
+    scale: 150%;
 }
 
 /**
