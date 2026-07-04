@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./components/Navbar"; // Double check the B is capital!
 import './index.css';
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -8,9 +9,9 @@ function App() {
     <div style={{ backgroundColor: "#0a0f1f", minHeight: "100vh", color: "#ffffff" }}>
       
       <NavBar />
-
+      <Home />
       {/* This placeholder pushes content down so it doesn't hide under the fixed navbar */}
-      <div id="main" style={{ padding: "120px 2rem 4rem 2rem" }}>
+      <div id="main" style={{ padding: "20rem 10rem 10rem 2rem" }}>
         <h1 style={{ color: "#61dafb", fontSize: "2.5rem", marginBottom: "1rem" }}>
           Jordan Tran/dev Space Is Live!
         </h1>

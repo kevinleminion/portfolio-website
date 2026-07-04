@@ -31,6 +31,17 @@ This next section will be importing custom fonts to use.
     font-weight: normal;
 }
 
+@font-face {
+    font-family: 'Barlow Regular';
+    src: url('./assets/fonts/Barlow-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Barlow Medium';
+    src: url('./assets/fonts/Barlow-Medium.ttf') format('truetype');
+    font-weight: normal;
+}
 /**
 Font section ends here
 */
