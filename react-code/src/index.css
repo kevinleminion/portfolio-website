@@ -15,19 +15,19 @@ This next section will be importing custom fonts to use.
 
 @font-face {
     font-family: 'FOT-Skip';
-    src: url('./assets/fonts/FOT-Skip Std B.otf') format('opentype');
+    src: url('./assets/fonts/FOT-Skip-Std-B.otf') format('opentype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'BM Space';
-    src: url('./assets/fonts/BMSPA_.TTF') format('truetype');
+    src: url('./assets/fonts/bm-space.ttf') format('truetype');
     font-weight: normal;
 }
 
 @font-face {
     font-family: 'Hiragino Mincho';
-    src: url('./assets/fonts/Hiragino Mincho Pro W6.otf') format('opentype');
+    src: url('./assets/fonts/Hiragino-Mincho-Pro-W6.otf') format('opentype');
     font-weight: normal;
 }
 
