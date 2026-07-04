@@ -1,5 +1,6 @@
 import React from "react";
 import './Home.css';
+import jackpotImg from '../assets/jackpot.jpg';
 
 const Home = () => {
     return (
@@ -12,7 +13,7 @@ const Home = () => {
                 </div>
 
                 <div className="home-image">
-                    <img src="/src/assets/jackpot.jpg" alt="Jackpot" />
+                    <img src={jackpotImg} alt="Jackpot" />
                 </div>
             </div>
         </section>
