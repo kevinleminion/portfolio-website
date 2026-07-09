@@ -1,23 +1,95 @@
+/**
+Section for the animations of text, and the images on the screen.
+*/
+
+@keyframes imgRotate{
+    0%{
+        opacity: 0;
+        transform: translateY(200%) rotateY(1440deg) rotateX(360deg); 
+    }
+    50%{
+        opacity: 0.2;
+        
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) rotateY(0deg) rotateX(0deg);
+    }
+}
+
+
 .home-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 5rem;
+    /* flexbox, evenly spaced items in the middle of their boxes */
+    padding: 1rem;
+    box-sizing: border-box;
+    
+    border-bottom: 3px groove black;
 
     font-family: 'Barlow Regular', sans-serif;
     font-style: italic;
+    /* text parameters */
+    
     min-height: 100vh;
 }
 
 .home-content{
-    flex:2;
     padding-left: 12rem;
+    flex: 2;
+    /* Flex of 2 allows it to take up more space */
+
+    /* Animation for the home content, or the text */
+    animation-name: slideUp; 
+}
+
+/**
+Container for the image and the image and its header, as they should come into view simultaneously.
+*/
+.image-container{
+    position: relative;
+    perspective: 1000px;
+    /* Setup required for the rotate in effect */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center;
+    /* Stack elements on top of eachother, align to center */
+
+    padding-right: 8rem;
+    /* 8rem padding to move it away from the border */
 }
 
 .home-image{
-    padding-right: 12rem;
-    flex:1;
-    object-fit: cover;
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
+    animation: imgRotate 4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
+
+.home-image-header{
+    background: linear-gradient(to top right, #dddbda 20%, hwb(0 16% 84%) 80%);
+    background-clip: text;
+    /*gradient for the text*/
+
+    color:transparent;
+    /*need to make the text transparent otherwise the default colors overrides the gradient*/
+
+    font-family: 'Barlow Regular', sans-serif;
+    font-size: 1.4rem;
+    font-style: normal;
+
+    text-align: center;
+    margin-top: 2rem;
+    /* align to center of container, space it from the image */
+
+    animation: slideUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 4s;
+    /* Slide in animation, needs to wait for the completion of the image animation */
+
+    opacity: 0;
+    /* need to make the text invisible at the beginning */
+}
+
+

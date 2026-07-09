@@ -46,10 +46,38 @@ This next section will be importing custom fonts to use.
 Font section ends here
 */
 
+/**
+Animations relating to the website will be defined here, primarily animations for text and images.
+*/
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* The predictable box math you just learned! */
+    box-sizing: border-box; 
+
+    flex-wrap: wrap;
 }
 
 body {
