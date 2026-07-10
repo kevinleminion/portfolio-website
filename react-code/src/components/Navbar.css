@@ -16,24 +16,33 @@
     font-weight: normal;
 }
 
+/* general navbar settings */
 .navbar {
     width: 100%;
     background: #000000;
     color: #ffffff;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(18, 165, 18, 0.15);
 }
 
+/* container for the elements */
 .navbar-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0rem 2rem;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.navbar-container a {
+    display: inline-flex;
+    align-items: baseline; /* align the text even if the font differs */
+    text-decoration: none;
 }
 
 .navbar .name{
@@ -49,17 +58,25 @@
     text-decoration: none;
 }
 
-.navbar .name:hover {
-    text-shadow: 0 0 6px #ffffff;
-    transition: text-shadow 0.2s ease;
-}
-
+/* the .dev next to my name */
 .navbar .accent {
     color: #12a512;
     font-family: "Hiragino Mincho", "Comic Sans MS", "sans-serif"; 
     font-size: 1.5rem;
+
+    display: inline-block;
+    overflow: hidden;
+    max-width: max-content; /* allows the max-width to be the max of the content rather than relying on the parent container */
+    /* I had a hard time understanding this, but it just allows you to bypass the fixed size allocated by flexbox */
+
+    border-right: 1.5px solid;
+    width: 0; /* related to the animation */
+
+    animation: type-out 2s steps(30, end) 1s forwards, blink 0.75s step-end infinite
+    /* animations, type it out then have it blink infinitely */
 }
 
+/* links in the navbar (excluding name) */
 .navbar-links {
     list-style: none;
     display: flex;
@@ -72,6 +89,7 @@
     font-size: 1.5rem;
 }
 
+/* effects for the hyperlinks in the navbar */
 .navbar-links a {
     color: inherit;
     text-decoration: none;
@@ -96,6 +114,27 @@
     transition: color 0.2s ease;
 }
 
+/* slowly reveals the element, starting with a width of 0 */
+@keyframes type-out{
+    from{
+        width: 0; 
+    }
+    to{
+        width: 100%;
+    }
+}
+
+/* animation for the "text selector" component */
+@keyframes blink{
+    0%, 100%{
+        border-color: transparent;
+    }
+    50%{
+        border-color: #12a512;
+    }
+}
+
+/* How the navbar is formatted on mobile devices */
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
