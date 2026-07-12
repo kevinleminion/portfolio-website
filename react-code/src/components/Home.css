@@ -104,16 +104,16 @@ Container for the image and the image and its header, as they should come into v
 
 
 .home-content{
-    padding-left: 12rem;
+    padding-left: 5rem;
     flex: 2;
     /* Flex of 2 allows it to take up more space */
 
     display: flex;
-    justify-content: flex-start; /* default parameters, may have some repeats from parent container */
+    justify-content: space-evenly; /* default parameters, may have some repeats from parent container */
     flex-direction: column;
 
     /* Animation for the home content, or the text */
-    animation-name: slideUp; 
+    animation: slideUp 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* for the header of this section */
@@ -130,6 +130,31 @@ Container for the image and the image and its header, as they should come into v
     font-size: 2rem; /* ditto, just setting parameters */
 }
 
+/*__________________________________________________ SOCIAL LINKS ______________________________________________________ */
 
+/* container settings */
+.social-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 5rem;
+    margin-top: 5rem;
+}
+
+/* settings for the actual icons */
+.social-links svg{
+    font-size: 4rem;
+    color: #ffffff;
+}
+
+/* determines what happens on hover, small color change with a glow */
+.social-links svg:hover{
+    transform: translateY(-4px);
+    
+    color: #ffffff9a;
+    text-shadow: 0 0 6px #ffffff9a;
+    transition: scale 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
+}
 
 
