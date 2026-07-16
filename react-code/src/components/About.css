@@ -3,10 +3,15 @@
     display: flex;
     flex-direction: column; /* start at very middle, stack on top of eachother */
     height: 100vh;
+}
 
-    justify-content: center;
-    align-items: center;
-    /* take up entire page, center around the middle of the page */
+.about-quote{
+    font-size: medium;
+    color: #256625; 
+    text-shadow:4px 4px #1F331F;
+
+    margin: 5rem; /* align text to middle of page */
+    text-align: center;   
 }
 
 /* horizontal lines, simply want to apply a gradient */

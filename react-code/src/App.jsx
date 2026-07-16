@@ -1,6 +1,7 @@
 import React from "react";
-import NavBar from "./components/Navbar"; // Double check the B is capital!
-import './index.css';
+import './index.css'; {/* basic imports */}
+
+import NavBar from "./components/Navbar"; 
 import Home from "./components/Home";
 import About from "./components/About";
 
