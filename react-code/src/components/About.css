@@ -1,0 +1,17 @@
+/* setting up the container for the about page itself */
+.about-container{
+    display: flex;
+    flex-direction: column; /* start at very middle, stack on top of eachother */
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+    /* take up entire page, center around the middle of the page */
+}
+
+/* horizontal lines, simply want to apply a gradient */
+/* For the split between the two main content halves */
+.home-content hr{
+    border:none; 
+    margin-bottom: 1.5rem;
+}
