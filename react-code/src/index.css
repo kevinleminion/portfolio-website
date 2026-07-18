@@ -47,6 +47,11 @@ This next section will be importing custom fonts to use.
     font-family: 'Novecento Light';
     src: url('./assets/fonts/Novecento-Light.otf') format('opentype');
 }
+
+@font-face{
+    font-family: 'Nuber Next';
+    src: url('./assets/fonts/NuberNext-Regular.otf') format('opentype');
+}
 /**
 Font section ends here
 */
@@ -99,6 +104,23 @@ Animations relating to the website will be defined here, primarily animations fo
     }
 }
 
+/* copied from the navbar, creates the illusion of text being "typed out" */
+@keyframes type-out{
+    from{
+        width: 0; 
+    }
+    to{
+        width: 100%;
+    }
+}
+
+/* Moving gradient background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -110,8 +132,8 @@ Animations relating to the website will be defined here, primarily animations fo
 body {
     font-family: 'BM Space', sans-serif;
     line-height: 1.6;
-    background-color: #363434;
-    color: #333;
+    background-color: #0a0f1f;
+    color: #ffffff;
 }
 
 html {

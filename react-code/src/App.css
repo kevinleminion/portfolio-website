@@ -1,0 +1,55 @@
+/* This file is dedicated solely to the background, nothing more */
+
+@keyframes float { /* makes applied element float around */
+  0%, 100% { transform: translate(20vw, 20%) scale(1); }
+  50% { transform: translate(80vw, 20%) scale(1.1); }
+}
+
+.return-website{ 
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.background-wrapper {
+    position: absolute;
+    inset: 0; /* top/right/bottom/left: 0 */
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: rgba(10, 15, 31, 0.85); /* want the content to be slightly transparent, important for the polygons */
+    color: #ffffff;
+}
+
+.polygon { /* basic polygon, determines default attributes and movement */
+    position: fixed;
+    width: 120px;
+    height: 120px; /* size parameters, can be specified if needed */
+    z-index: -1;
+
+    opacity: 1;
+    animation: float 8s ease-in-out infinite both;
+}
+
+/* individual polygons */
+.triangle {
+  width: 300px;
+  height: 300px;
+  background-color: #3498db;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.diamond {
+  width: 400px;
+  height: 400px;
+  background: #7873f5;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+  left: 20%;
+  top: 40%;
+}
+

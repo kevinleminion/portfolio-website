@@ -1,5 +1,6 @@
 import React from "react";
-import './index.css'; {/* basic imports */}
+import './index.css'; 
+import './App.css';
 
 import NavBar from "./components/Navbar"; 
 import Home from "./components/Home";
@@ -8,17 +9,21 @@ import About from "./components/About";
 function App() {
   return (
     // We are forcing a dark background and a minimum layout height right here
-    <div style={{ backgroundColor: "#0a0f1f", minHeight: "100vh", color: "#ffffff" }}>
-      
-      <NavBar />
+    <div className = "return-website">
+      <div className="background-wrapper">
+        <div className="polygon triangle" /> {/* double classes */}
+        <div className="polygon diamond" />
+      </div>
 
-      
-      
-      {/* home page section */}
-      <div id="main"> <Home /> </div>
+      <div className = "content-wrapper">
+        <NavBar />
 
-      <div id="about"> <About /> </div>
+        {/* home page section */}
+        <div id="main"> <Home /> </div>
 
+        <div id="about"> <About /> </div>
+
+      </div>
     </div>
   );
 }

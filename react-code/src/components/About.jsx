@@ -5,17 +5,32 @@ const About = () => {
     return (
         <div className="about-container">
             <div className="about-quote">
-                <h1>To live is to change, to choose something new. To lose whatever has not been chosen is to gain by loss.</h1>
+                <h1>"To live is to change, to choose something new. To lose whatever has not been chosen is to gain by loss."</h1>
             </div>
-            <h2>
-                Hey, I'm Jordan! I'm currently a third year Computer Science student at the University of Calgary, and I'm making
-                this website to develop my skills in CSS and HTML, while also learning something new in front-end development
-                through React.
+            <h2 className = "quick-summary">
+                👋 Hey, I'm Jordan! I'm currently a third year Computer Science student at the <span style={{ color: "#d6001c" }}>University</span> 
+                <span style = {{color:"#ffcd00"}}> of</span> <span style={{ color: "#d6001c" }}>Calgary</span>, and I'm making
+                this website to develop my skills in CSS and HTML, while also learning something new in front-end development through React.
             </h2>
+            
             <hr/>
-            <h2>
-                In my spare time you can usually find me playing video games, 
-            </h2>
+
+            <div className = "about-content">
+                <h2>
+                    In my spare time you can usually find me playing video games, hitting the gym, or going on walks to random places
+                    for absolutely no reason. I believe the choices you make define who you are, and as such I am always open to trying
+                    new things even if they don't end up sticking.
+                </h2>
+                <h2>
+                    Cloud computing and cybersecurity to me are the more interesting fields of computer science, and while I do 
+                    still appreciate the intricacies of general software engineering, I don't find it to be as compelling.
+                </h2>
+            </div>
+
+            <div className = "favourite-games">
+                <h2>My Top 5 Video Games:</h2>
+            </div>
+
         </div>
 
     );
