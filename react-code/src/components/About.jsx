@@ -18,17 +18,17 @@ const About = () => {
             <div className = "about-content">
                 <h2>
                     In my spare time you can usually find me playing video games, hitting the gym, or going on walks to random places
-                    for absolutely no reason. I believe the choices you make define who you are, and as such I am always open to trying
-                    new things even if they don't end up sticking.
+                    for absolutely no reason. Variety is the spice of life, otherwise it may become monotonous.
                 </h2>
+                <div className = "divider"></div>
                 <h2>
                     Cloud computing and cybersecurity to me are the more interesting fields of computer science, and while I do 
                     still appreciate the intricacies of general software engineering, I don't find it to be as compelling.
                 </h2>
             </div>
 
-            <div className = "favourite-games">
-                <h2>My Top 5 Video Games:</h2>
+            <div className = "game-container">
+                <h2>My Picks for Top 5 Games: ▼</h2>
             </div>
 
         </div>

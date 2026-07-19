@@ -30,8 +30,7 @@
     flex-direction: row;
     flex-wrap: nowrap; /* nowrap allows both elements onto one line */
 
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: space-between;
     padding: 2rem; /* space away from edge of screen */
 
     margin-inline: 2rem; /* space away from each other */
@@ -39,6 +38,35 @@
 
 .about-content h2{
     flex: 1; /* allows the h2 to grow/shrink to fit all available space */
+}
+
+
+/* simply the divider between the two "body" parts */
+.divider{
+    width: 2px; 
+    background: linear-gradient(to bottom, transparent,#0a1f3d 20%,#ffffff 50%,#0a1f3d 80%,transparent);
+    /* goes from top to bottom, starts transparent, ends transparent. The rest is the in between colors */
+    align-self: stretch;
+
+    margin-inline: 2rem; /* distance from other elements */
+
+}
+
+
+/* container, will do more when hovered over */ 
+.game-container{
+    margin-top: 3rem;
+    border-radius: 15px;
+    background: #256625;
+    box-shadow: 7px 7px 3px#1F331F;
+
+    margin-inline: 3rem;
+    width: 400px;
+}
+
+/* for the list of games, should be revealed when game container is hovered over */
+.game-list{
+
 }
 
 /* horizontal lines, simply want to apply a gradient */
