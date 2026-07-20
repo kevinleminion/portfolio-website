@@ -1,0 +1,41 @@
+/* class for recreating a dropdown menu */
+
+/* container, will do more when hovered over */ 
+.game-container{
+    margin-top: 3rem;
+    border-radius: 15px;
+    background: #382B46;
+    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4); /* game container parameters */
+
+    margin-inline: 3rem;
+    width: 400px; /* set width and left/right margin */
+    max-height: 50px; /* set initial height until hovered over */
+    transition: max-height 0.3s ease; /* max-height transition based on hover */
+    overflow: hidden;
+}
+
+.game-container:hover{
+    max-height: 500px; /* simply what is linked to the transition */
+}
+
+.game-list{
+    list-style: none;
+    font-style: italic;
+    font-family: 'Barlow Regular';
+    font-size: 1.5rem;
+
+    margin-top: 5px;    
+    /* dictates the container and base rules, nothing else */
+}
+
+.game-list li{
+    margin-top: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* almost transparent border line */
+    animation: slideUp 0.3s ease forwards; /* animation for each list item to use */
+}
+
+.game-list li:nth-child(1) { animation-delay: 0.05s; }
+.game-list li:nth-child(2) { animation-delay: 0.10s; } /* make each item appear one by one */
+.game-list li:nth-child(3) { animation-delay: 0.15s; }
+.game-list li:nth-child(4) { animation-delay: 0.20s; }
+.game-list li:nth-child(5) { animation-delay: 0.25s; }

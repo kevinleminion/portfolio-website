@@ -52,27 +52,13 @@
 
 }
 
-
-/* container, will do more when hovered over */ 
-.game-container{
-    margin-top: 3rem;
-    border-radius: 15px;
-    background: #256625;
-    box-shadow: 7px 7px 3px#1F331F;
-
-    margin-inline: 3rem;
-    width: 400px;
-}
-
-/* for the list of games, should be revealed when game container is hovered over */
-.game-list{
-
-}
-
-/* horizontal lines, simply want to apply a gradient */
 /* For the split between the two main content halves */
 .home-content hr{
     border:none; 
     margin-bottom: 1.5rem;
 }
+
+
+
+
 

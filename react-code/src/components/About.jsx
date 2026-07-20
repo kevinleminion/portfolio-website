@@ -1,5 +1,6 @@
 import React from "react";
 import './About.css';
+import Dropdown from './Dropdown';
 
 const About = () => {
     return (
@@ -26,13 +27,8 @@ const About = () => {
                     still appreciate the intricacies of general software engineering, I don't find it to be as compelling.
                 </h2>
             </div>
-
-            <div className = "game-container">
-                <h2>My Picks for Top 5 Games: ▼</h2>
-            </div>
-
+            <Dropdown/>
         </div>
-
     );
 };
 
