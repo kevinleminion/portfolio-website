@@ -1,11 +1,21 @@
 /* class for recreating a dropdown menu */
-
+@keyframes fadeIn { /* effect when switching elements */
+  from {
+    opacity: 0;
+    transform: translateY(4px); /* tiny rise effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* container, will do more when hovered over */ 
 .game-container{
     margin-top: 3rem;
     border-radius: 15px;
     background: #382B46;
     box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4); /* game container parameters */
+    position: absolute; /* shouldn't affect anything else */
 
     margin-inline: 3rem;
     width: 400px; /* set width and left/right margin */
@@ -36,6 +46,88 @@
 
 .game-list li:nth-child(1) { animation-delay: 0.05s; }
 .game-list li:nth-child(2) { animation-delay: 0.10s; } /* make each item appear one by one */
-.game-list li:nth-child(3) { animation-delay: 0.15s; }
+.game-list li:nth-child(3) { animation-delay: 0.15s; }  
 .game-list li:nth-child(4) { animation-delay: 0.20s; }
 .game-list li:nth-child(5) { animation-delay: 0.25s; }
+
+/* whenever you hover over a list item */
+.game-list li:hover{
+    scale: 1.15;
+    color: #FFFFFF; /* effectively the same as the hyperlinks on the navbar */
+    
+    text-shadow: 0 0 6px #FFFFFF;
+}
+
+.game-details{
+    position: absolute; 
+    margin-top: 3rem;
+    left: 30%; /* positioning */
+
+    width: 1000px; /* size of the detail box */
+    height: 260px; 
+
+    margin-top: 3rem;
+    border-radius: 15px; /* appearance settings copied over */
+    background: #382B46;
+    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4); 
+    position: absolute; /* shouldn't affect anything else */
+
+    opacity: 0;
+    visibility: hidden; /* hide by default */
+    pointer-events: none; /* prevent mouse interactions */
+
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* opacity and visibility transitions */
+}
+
+/* make the details visible when hovered over */
+.game-details.visible{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* allow mouse clicks */
+}
+
+/* template for the game itself, they should all be roughly the same */
+.game-page{
+    animation: fadeIn 0.25s ease-out forwards; /* run the animation each time the "page" is rendered */
+    display: grid;
+    grid-template-columns: 2fr 3fr; /* rough 40/60 split */
+    grid-template-rows: 1fr; /* singular row, so its just a left and a right */
+
+    gap: 20px; /* Spacing between columns */
+    height: 100%;
+}
+
+.game-image{ /* image settings */
+    max-width: 100%;
+    max-height: 100%; 
+       
+    object-fit: contain;
+    display:block; /* contain in the container */
+
+    border-radius: 8px;
+    overflow: hidden; /* rounded borders */
+
+    
+}
+
+/* wrapper box for the image, i.e the container for the image and nothing more */
+.image-wrapper {
+    width: 100%;
+    height: calc(100% - 2rem); /* base settings, account for margin */
+    margin-block: 1rem;
+    margin-inline: 2rem; /* spacing from the edges */
+
+    overflow: hidden; /* clips the image to the wrapper's rounded shape */
+    background: #382B46; /* matches .game-container to blend in */
+    display: flex;
+    justify-content: start; /* Pushes the image to the far left of the 40% cell */
+}
+
+.game-text{
+    display:flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+

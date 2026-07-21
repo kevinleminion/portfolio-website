@@ -12,7 +12,7 @@ const Home = () => {
                 </h1>
                 <hr className = "separator-line"/> 
                 <p className = "self-intro">
-                    Exceptionally eccentric solitude freak traversing life one day at a time.
+                    Naturally curious solitude freak traversing life one day at a time.
                 </p>
                 <hr/>
                 <p className = "professional-goals">
