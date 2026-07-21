@@ -1,7 +1,7 @@
 import React from "react";
 import './Home.css';
 import jackpotImg from '../assets/jackpot.jpg';
-import { FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Home = () => {
     return (
@@ -23,8 +23,8 @@ const Home = () => {
                     <a href = "https://github.com/kevinleminion" target="_blank" rel="noreferrer"> 
                         <FaGithub className="social-icon" />
                     </a>
-                    <a href = "https://www.instagram.com/jordantran47/" target="_blank" rel="noreferrer">
-                        <FaInstagram className="social-icon" />
+                    <a href = "https://www.linkedin.com/in/jordan-tran-2429b5352/" target="_blank" rel="noreferrer">
+                        <FaLinkedin className="social-icon" />
                     </a>
                 </div>
             </div>

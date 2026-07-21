@@ -100,6 +100,8 @@ Container for the image and the image and its header, as they should come into v
 .home-content hr{
     border:none; 
     margin-bottom: 1.5rem;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 

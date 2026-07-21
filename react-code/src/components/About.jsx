@@ -14,8 +14,6 @@ const About = () => {
                 this website to develop my skills in CSS and HTML, while also learning something new in front-end development through React.
             </h2>
             
-            <hr/>
-
             <div className = "about-content">
                 <h2>
                     In my spare time you can usually find me playing video games, hitting the gym, or going on walks to random places
@@ -28,6 +26,7 @@ const About = () => {
                 </h2>
             </div>
             <Dropdown/>
+            <hr/>
         </div>
     );
 };
