@@ -5,6 +5,24 @@
   50% { transform: translate(80vw, 20%) scale(1.1); }
 }
 
+/* simple enough rise animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1); /* reset loop */
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6; /* soft fade in while entering */
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-115vh) scale(1.3); /* goes past top of screen */
+    opacity: 0; /* fade out before loop resets */
+  }
+}
+
 .return-website{ 
     position: relative;
     overflow: hidden;
@@ -25,31 +43,71 @@
     color: #ffffff;
 }
 
-.polygon { /* basic polygon, determines default attributes and movement */
-    position: fixed;
-    width: 120px;
-    height: 120px; /* size parameters, can be specified if needed */
-    z-index: -1;
+/* container for all the bubbles, should just be the entire thing */
+.bubbles-container{
+    position:fixed; 
+    top: 0;
+    left: 0; /* start in top right */
 
-    opacity: 1;
-    animation: float 8s ease-in-out infinite both;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* prevent interference with anything */
+    z-index: -1; /* keep them in the back */
+    overflow: hidden; /* important for when they get to the top */
 }
 
-/* individual polygons */
-.triangle {
-  width: 300px;
-  height: 300px;
-  background-color: #3498db;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+/* bubble themselves */
+.bubble {
+    position: absolute;
+    bottom: -100px; /* Start below the bottom of the viewport */
+    background: rgba(255, 255, 255, 0.4); /* Subtle glowing white/blue */
+
+    border-radius: 50%; /* to make the actual circle */
+    backdrop-filter: blur(4px); /* blur area behind circle */
+    animation: floatUp 12s infinite linear;
 }
 
-.diamond {
-  width: 400px;
-  height: 400px;
-  background: #7873f5;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 
-  left: 20%;
-  top: 40%;
+/* all the bubbles are slightly different, but function effectively the same */
+.bubble-1{
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  animation-duration: 10s;
+  animation-delay: 0s;
 }
+
+.bubble-2{
+  width: 40px;
+  height: 40px;
+  left: 25%;
+  animation-duration: 14s;
+  animation-delay: 3s;
+}
+
+.bubble-3{
+  width: 120px;
+  height: 120px;
+  left: 45%;
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+
+.bubble-4{
+  width: 60px;
+  height: 60px;
+  left: 65%;
+  animation-duration: 11s;
+  animation-delay: 5s;
+}
+
+.bubble-5{
+  width: 90px;
+  height: 90px;
+  left: 80%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+
 

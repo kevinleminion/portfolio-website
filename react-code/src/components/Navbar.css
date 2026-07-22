@@ -26,6 +26,14 @@
     left: 0;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(18, 165, 18, 0.15);
+
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0); /* simple slide in animation */
+}
+
+/* for when the navbar is hidden */
+.navbar.hidden{
+    transform: translateY(-100%); /* slide up and offscreen */
 }
 
 /* container for the elements */

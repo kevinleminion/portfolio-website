@@ -12,9 +12,12 @@ function App() {
   return (
     // We are forcing a dark background and a minimum layout height right here
     <div className = "return-website">
-      <div className="background-wrapper">
-        <div className="polygon triangle" /> {/* double classes */}
-        <div className="polygon diamond" />
+      <div className="bubbles-container">
+        <span className="bubble bubble-1"></span>
+        <span className="bubble bubble-2"></span> 
+        <span className="bubble bubble-3"></span>
+        <span className="bubble bubble-4"></span>
+        <span className="bubble bubble-5"></span>
       </div>
 
       <div className = "content-wrapper">

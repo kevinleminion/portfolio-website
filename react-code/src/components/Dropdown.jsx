@@ -108,7 +108,7 @@ const Dropdown = () => {
                                 Basically the opposite of DMC5 to me; while the gameplay isn't as amazing, it makes up for it in every other way.
                                 The levels and enemies are thoughtfully designed, while also greatly improving the atmosphere that the original held.
                                 While not really a scary game, I appreciate that they didn't completely abandon the survival horror aspect like later 
-                                titles would go on to do. Also, Leon is a complete badass, while also being a huge dork.
+                                titles would go on to do. Lastly, Leon is a complete badass, while also being a huge dork.
                             </h3>
                         </div>
                         <div className = "game-rating">
