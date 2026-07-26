@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './index.css'; 
 import './App.css';
 
@@ -7,10 +7,19 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Dropdown from "./components/Dropdown";
 import Projects from "./components/Projects";
+import Loading from "./components/Loading"
+
 
 function App() {
+  const [isReady, setIsReady] = useState(false); // for use with the loading screen
+
+  if(!isReady){ // nothing happens until loading is finished
+    return <Loading onFinish = {() => setIsReady(true)} />;
+  }
+
   return (
     // We are forcing a dark background and a minimum layout height right here
+  
     <div className = "return-website">
       <div className="bubbles-container">
         <span className="bubble bubble-1"></span>

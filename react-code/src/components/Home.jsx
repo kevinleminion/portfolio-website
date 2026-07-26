@@ -14,7 +14,6 @@ const Home = () => {
                 <p className = "self-intro">
                     Naturally curious solitude freak traversing life one day at a time.
                 </p>
-                <hr/>
                 <p className = "professional-goals">
                     I'm a computer science student fascinated about modern cloud infrastructure and the incredible capacity it brings for GitOps automation.
                 </p>

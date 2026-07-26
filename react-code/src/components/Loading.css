@@ -1,0 +1,68 @@
+/* website loading screen */
+
+/* basic rotation animation */
+@keyframes rotation{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg); 
+    }
+}
+
+.load-container{
+    min-width: 100vw;
+    min-height: 100vh;
+    /* ensure it covers the entire page */
+
+    background: rgba(10, 15, 31, 1);
+    /* simple gradient for the background */
+
+    display: flex; /* flex display, want all the elements to be grouped around the same area */
+    flex-direction: column; /* two main containers, one on top of the other */
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.5s ease; /* handles fade in and out */
+}
+
+.load-container.hidden{
+    opacity: 0; /* done loading, can get rid of everything else now */
+}
+
+/* container for the load indicators themselves */
+.load-indicators{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* allow the load indicators to be visible */
+.load-indicators.active{
+    animation: slideUp 0.3s forwards; /* need animations to be separate */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* load indicator base skeleton */
+.load-indicator{
+    color: white; 
+    width: 60px;
+    height: 60px; /* size settings */
+    visibility: hidden;
+    opacity: 0;
+
+    margin: 7rem; /* gap between them */
+    animation: rotation 2s infinite;
+}
+
+/* load indicator when it becomes active, or visible */
+.load-indicator.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* simple text that says "OK!" */
+.okay-sign{
+
+}
+

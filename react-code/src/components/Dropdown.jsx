@@ -68,8 +68,8 @@ const Dropdown = () => {
                         <div className = "game-text">
                             <h3>
                                 Many disliked Raiden as a replacement for Snake, but I personally found his development
-                                over the course of the game to be one of the shining points of the game, and a primary factor for why
-                                I love the game so much. Profound story that left me thinking well after finishing the game, coupled with
+                                over the course of the game to be one of the shining points of the game, and a primary factor for my high ranking.
+                                Profound story that left me thinking well after finishing the game, coupled with
                                 the unique stealth of the MGS franchise make this truly a Kojima classic.
                             </h3>
                         </div>
