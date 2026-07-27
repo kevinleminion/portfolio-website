@@ -1,13 +1,9 @@
 /* website loading screen */
 
-/* basic rotation animation */
+/* basic rotation animation, combine with slideUp */
 @keyframes rotation{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg); 
-    }
+    from{rotate: 0deg;}
+    to{rotate: 360deg;}
 }
 
 .load-container{
@@ -30,35 +26,52 @@
     opacity: 0; /* done loading, can get rid of everything else now */
 }
 
+
+/*------------- INDICATOR STUFF ----------------- */
+
 /* container for the load indicators themselves */
 .load-indicators{
     opacity: 0;
     visibility: hidden;
+    transition: opacity 2s ease; /* opacity transition */
 }
 
 /* allow the load indicators to be visible */
 .load-indicators.active{
-    animation: slideUp 0.3s forwards; /* need animations to be separate */
     visibility: visible;
     opacity: 1;
 }
 
-/* load indicator base skeleton */
+/* this wrapper handle visibility and slide in alone */
+.load-indicator-wrapper{
+    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
+    margin: 7rem; 
+}
+
+/* makes them visible, apply the slideUp animation */
+.load-indicator-wrapper.active{
+    opacity: 1;
+    visibility: visible;
+    animation: slideUp 2s forwards;
+}
+
+/* load indicators themselves */
 .load-indicator{
     color: white; 
     width: 60px;
     height: 60px; /* size settings */
-    visibility: hidden;
-    opacity: 0;
 
-    margin: 7rem; /* gap between them */
-    animation: rotation 2s infinite;
+    display: flex; /* make sure they're centered */
+    align-items: center;
+
+    animation: rotation 1s infinite;  /* rotation animation */
 }
 
-/* load indicator when it becomes active, or visible */
-.load-indicator.active{
-    visibility: visible;
-    opacity: 1;
+/* stop the rotation */
+.load-indicator.stopped{
+    animation-play-state: paused;
 }
 
 /* simple text that says "OK!" */

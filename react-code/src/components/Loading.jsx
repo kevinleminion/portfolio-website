@@ -49,56 +49,106 @@ function CreateAsterisk({className}) {
 
 function Loading ({onFinish}){
     const [progress, setProgress] = useState(0); // loading progress and status
-    const [status, setStatus] = useState('loading');
+    const [assetsReady, setAssetsReady] = useState(false); // are all the assets ready
+    const [currentStep, setCurrentStep] = useState(0); // used in conjunction with the loading animation
     const loadedAssets = useRef(0); // loaded assets
+
+    const [fadeOut, setFadeout] = useState(false); // determines when to fade out the load screen
 
     function handleLoadedAssets(){
         loadedAssets.current += 1; // increment based on loaded elements
         console.log(`Asset ${loadedAssets.current}/${neededAssets.length} loaded`);
-        
+
         const currentProgress = (loadedAssets.current/neededAssets.length) // loading percentage
 
-        setTimeout(() => {
-            setProgress(currentProgress * 100); // convert to percentage
-            if (loadedAssets.current >= neededAssets.length) {
-                console.log('All assets loaded, waiting to call onFinish...');
-                setTimeout(() => onFinish(), 1500); // allow 1500 ms delay when done loading
-            }
-        }, loadedAssets.current * 250); // force time delay when loading
+        if (loadedAssets.current >= neededAssets.length) {
+            setAssetsReady(true); // all assets are loaded
+        }
     }
 
-    function loadAsset(asset){
-        // just loading in each asset
+    function loadAsset(asset, isActive){
         if(asset.type === 'image'){
             const img = new Image();
-            img.onload = () => handleLoadedAssets();
-            img.onerror = () => handleLoadedAssets(); // in case of an error
+            img.onload = () => { if (isActive()) handleLoadedAssets(); };
+            img.onerror = () => { if (isActive()) handleLoadedAssets(); };
             img.src = asset.src; 
         }
         else if (asset.type === 'font'){
             document.fonts.load(`1em "${asset.family}"`)
-            .then(() => handleLoadedAssets())
-            .catch(() => handleLoadedAssets()); // catch an error
+                .then(() => { if (isActive()) handleLoadedAssets(); })
+                .catch(() => { if (isActive()) handleLoadedAssets(); });
         }
     }
-    
-    // loop through the array and load each item
-    useEffect(() => { // nest inside useEffect so it only runs once
+
+    // 1. load all the assets
+    useEffect(() => {
+        let cancelled = false;
         neededAssets.forEach((currentItem) => {
-            loadAsset(currentItem);
+            loadAsset(currentItem, () => !cancelled);
         });
+
+        return () => {
+            cancelled = true;
+        };
     }, []);
 
+    // 2. Run the "fake" loading screen
+    useEffect(() => {
+        const duration = 4000; // duration of the load screen
+        const indicators = 5;
+        const indivDuration = duration/indicators; // delay of each indicator
+
+        const timer = setInterval(() => {
+            setCurrentStep((prevStep) => { // set step counter
+                const nextStep = prevStep + 1;
+
+                // Once we hit the 5th step, shut off the loop
+                if (nextStep >= indicators) {
+                    clearInterval(timer);
+                }
+
+                return nextStep;
+            });
+        }, indivDuration);
+
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
+
+    // 3. Trigger completion and fading of the load screen
+    useEffect(() => {
+        // need both properties to be true
+        if (currentStep >= 5 && assetsReady) {
+            setFadeout(true); // begin fading sequence
+
+            const finishTimer = setTimeout(() => {
+                if (onFinish) onFinish();
+            }, 2000);
+
+            return () => clearTimeout(finishTimer);
+        }
+    }, [currentStep, assetsReady, onFinish]);
 
     // the actual HTML to return
     return( 
         <div className = {"load-container"}>
-            <span className = {`load-indicators ${progress >= 20 ? 'active' : ''}`}>
-                <CreateAsterisk className={`load-indicator ${progress >= 20 ? 'active' : ''}`}/>
-                <CreateAsterisk className={`load-indicator ${progress >= 40 ? 'active' : ''}`}/>
-                <CreateAsterisk className={`load-indicator ${progress >= 60 ? 'active' : ''}`}/>
-                <CreateAsterisk className={`load-indicator ${progress >= 80 ? 'active' : ''}`}/>
-                <CreateAsterisk className={`load-indicator ${progress >= 100 ? 'active' : ''}`}/>
+            <span className = {`load-indicators ${currentStep >= 1 ? 'active' : ''}`}>
+                <span className = {`load-indicator-wrapper ${currentStep >= 1 ? 'active' : ''}`}>
+                    <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
+                </span>
+                <span className = {`load-indicator-wrapper ${currentStep >= 2 ? 'active' : ''}`}>
+                    <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
+                </span>
+                <span className = {`load-indicator-wrapper ${currentStep >= 3 ? 'active' : ''}`}>
+                    <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
+                </span>
+                <span className = {`load-indicator-wrapper ${currentStep >= 4 ? 'active' : ''}`}>
+                    <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
+                </span>
+                <span className = {`load-indicator-wrapper ${currentStep >= 5 ? 'active' : ''}`}>
+                    <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
+                </span>
             </span>
             <span className = "okay-sign"></span>
         </div>
