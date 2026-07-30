@@ -54,6 +54,7 @@ function Loading ({onFinish}){
     const loadedAssets = useRef(0); // loaded assets
 
     const [fadeOut, setFadeout] = useState(false); // determines when to fade out the load screen
+    const [endLoad, setEndload] = useState(false); // wipe everything
 
     function handleLoadedAssets(){
         loadedAssets.current += 1; // increment based on loaded elements
@@ -120,19 +121,20 @@ function Loading ({onFinish}){
     useEffect(() => {
         // need both properties to be true
         if (currentStep >= 5 && assetsReady) {
-            setFadeout(true); // begin fading sequence
-
+            const animDelay = setTimeout(() => {setFadeout(true)}, 1500); // wait 1 second for the animation to finish playing
+            const hideTimer = setTimeout(() => setEndload(true), 3000); // start fading
+            
             const finishTimer = setTimeout(() => {
                 if (onFinish) onFinish();
-            }, 2000);
+            }, 3500);
 
-            return () => clearTimeout(finishTimer);
+            return () => {clearTimeout(finishTimer); clearTimeout(hideTimer); clearTimeout(finishTimer)}; /* cancels the timers */
         }
     }, [currentStep, assetsReady, onFinish]);
 
     // the actual HTML to return
     return( 
-        <div className = {"load-container"}>
+        <div className = {`load-container ${endLoad ? 'hidden' : ''}`}>
             <span className = {`load-indicators ${currentStep >= 1 ? 'active' : ''}`}>
                 <span className = {`load-indicator-wrapper ${currentStep >= 1 ? 'active' : ''}`}>
                     <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
@@ -150,7 +152,10 @@ function Loading ({onFinish}){
                     <CreateAsterisk className = {`load-indicator ${fadeOut ? 'stopped' : ''}`} />
                 </span>
             </span>
-            <span className = "okay-sign"></span>
+            <span className = "ending-wrapper">
+                <h1 className={`loading-text ${fadeOut ? 'stopped' : ''}`}>Loading<span class="loading-dots">...</span></h1>
+                <span className = {`okay-sign ${fadeOut ? 'active' : ''}`}><h1>OK!</h1></span>
+            </span>
         </div>
     );
 }

@@ -6,12 +6,21 @@
     to{rotate: 360deg;}
 }
 
+/* reset to a neutral position, basically just run the loop and stop */
+@keyframes rotationStop{
+    from{rotate: 0deg;}
+    to{rotate:0deg};
+}
+
 .load-container{
     min-width: 100vw;
     min-height: 100vh;
-    /* ensure it covers the entire page */
+    max-width: 100vw;
+    max-height: 100vh;
+    /* ensure it covers the entire page, and stays that way */
 
-    background: rgba(10, 15, 31, 1);
+    background: #0A0F1F;
+    background: radial-gradient(circle, rgba(10, 15, 31, 1) 0%, rgba(54, 63, 94, 1) 90%);
     /* simple gradient for the background */
 
     display: flex; /* flex display, want all the elements to be grouped around the same area */
@@ -71,11 +80,88 @@
 
 /* stop the rotation */
 .load-indicator.stopped{
-    animation-play-state: paused;
+    animation: rotationStop 0.67s ease-out forwards; /* ease is important for a smooth stop */
 }
 
-/* simple text that says "OK!" */
-.okay-sign{
 
+@keyframes dotSteps {
+  0% {
+    width: 0ch; /* character widths */
+  }
+  80% { /* let it stop at 80% for a bit */
+    width: 3ch; 
+  }
+  100% {
+    width: 3ch; /* three dots, nothing insane */
+  }
+}
+
+/* fairly simple, just an anchor point */
+.ending-wrapper{
+    display:flex;
+    position:relative;
+
+
+}
+
+/* for when the loading text is hidden */
+.loading-text.stopped{
+    opacity: 0; 
+}
+
+.loading-dots {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    white-space: nowrap;
+
+    /* steps(3, end) jumps width in 3 discrete chunks (0, 1, 2, 3 dots) */
+    animation: dotSteps 1.5s steps(3, end) infinite;
+}
+
+.loading-text {
+    margin-top: 2rem;  
+    color: white;
+    font-family: 'FOT-Skip'; /* Monospace ensures equal dot spacing */
+    font-size: 2rem;
+    position: absolute;
+    white-space: nowrap;
+
+    top: 50%;
+    left: 50%; /* center it, nothing groundbreaking */
+    transform: translate(-50%, -50%);
+
+    transition: opacity 0.5s ease; /* opacity transition */
+}
+
+.okay-sign{
+    position: absolute; /* make sure it lies on top of the text */
+    opacity: 0;
+    font-family: 'BM Space';
+    font-size: 3rem;
+    margin-top: 2rem;
+    white-space: nowrap;
+
+    top: 50%;
+    left: 50%; /* center it, nothing groundbreaking */
+    transform: translate(-50%, -50%); /* to account for box width */
+}
+
+/* unique slideRight just for this */
+@keyframes specificSlide {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateX(0);
+    }
+}
+
+/* simply activates */
+.okay-sign.active{
+    opacity: 1;
+    animation: specificSlide 0.7s ease forwards; /* slide in */
 }
 
