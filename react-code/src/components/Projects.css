@@ -1,5 +1,117 @@
 /* projects section, shouldn't be very much here */
 
 .main-container{
-    height: 100vh;
+    min-height: 100vh; /* allow space for expansion */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* basic flexbox setup */
+    justify-content: space-between;
+    gap: 4rem; 
+}
+
+/*------------------------------- MISC/REUSED ------------------------------------------ */
+
+/* simple gradient for separators */
+.gradient-line{
+    background: linear-gradient(90deg, #0a0f1f 15%, #FFFFFF 100%);
+    margin-bottom: 2rem;
+    opacity: 1;
+    height: 2px;
+    border:none;
+
+    width: 30%; /* don't need it to be the full length */
+    flex-shrink: 0; /* stop flexbox from shrinking it */
+}
+
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate (360deg);
+    }
+}
+
+/* for the line specifically in the popups themselves*/
+.separator-line{
+    display: flex;
+    flex-direction: row; /* so the star and the line are next to each other */
+}
+
+.fp-star{
+    animation: rotate 1s linear infinite; /* simply make the star spin */
+}
+
+/*------------------------------- INTRO SECTION ---------------------------------------- */
+.intro-container{
+    height: 25vh; /* take up 25% of space */
+
+    display:flex; /* flex settings for the container */
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: nowrap;
+
+    margin-top: 3rem; 
+    margin-inline: 1.5rem;
+}
+
+.project-header{
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: bold;
+    font-family: 'Novecento Light', sans-serif;
+}
+
+.intro-text{
+    font-size: 1.5rem;
+    font-family: 'Nuber Next';
+}
+
+
+
+/*----------------------------- BUTTON STUFF ---------------------------------- */
+
+.button-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* two columns, evenly sized */
+    grid-template-rows: repeat(2, 1fr); /* ditto for rows */
+}
+
+.generic-button{
+
+}
+
+
+
+
+/*---------------------------------- POPUP STUFF ------------------------------------ */
+
+/* slide up while fading in */
+@keyframes fadeUp{
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.close-button{
+    
+}
+
+/* overwriting default HTML dialog settings */
+.dialog{
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+/* transluscent background */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
 }
