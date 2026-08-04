@@ -1,12 +1,11 @@
 /* projects section, shouldn't be very much here */
-
 .main-container{
     min-height: 100vh; /* allow space for expansion */
 
     display: flex;
     flex-direction: column;
     align-items: center; /* basic flexbox setup */
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 4rem; 
 }
 
@@ -27,21 +26,20 @@
 
 @keyframes rotate{
     from{
-        transform: rotate(0deg);
+        transform: translateY(-50%) rotate(0deg);
     }
     to{
-        transform: rotate (360deg);
+        transform: translateY(-50%) rotate(360deg);
     }
-}
-
-/* for the line specifically in the popups themselves*/
-.separator-line{
-    display: flex;
-    flex-direction: row; /* so the star and the line are next to each other */
 }
 
 .fp-star{
-    animation: rotate 1s linear infinite; /* simply make the star spin */
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%); /* fixed offset */
+
+    animation: rotate 4s linear infinite; /* simply make the star spin */
+    position: absolute;
 }
 
 /*------------------------------- INTRO SECTION ---------------------------------------- */
@@ -77,13 +75,24 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* two columns, evenly sized */
     grid-template-rows: repeat(2, 1fr); /* ditto for rows */
+
+    gap: 3rem;
+    margin-top: 15vh; /* hard coded margin, a bit tired right now */
 }
 
 .generic-button{
 
 }
 
+.close-button{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
 
+    position: absolute;
+    top: 1rem;
+    right: 1rem; /* force positioning */
+}
 
 
 /*---------------------------------- POPUP STUFF ------------------------------------ */
@@ -92,23 +101,61 @@
 @keyframes fadeUp{
   from {
     opacity: 0;
-    transform: scale(0.85) translateY(10px);
+    transform: translate(-50%, -50%) scale(0.85) translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translate(-50%, -50%) scale(1) translateY(0);
   }
+}
+/* effectively the same as in the loading screen */
+
+.individual-header{
+    font-size: 2rem;
+    font-family: 'Barlow Medium';
+}
+
+/* for the line specifically in the popups themselves*/
+.separator-line{
+    display: flex;
+    flex-direction: row; /* so the star and the line are next to each other */
+    flex-wrap:nowrap;
+}
+
+/* only the gradient line that is nested in separator line */
+.separator-line .gradient-line{
+    background: linear-gradient(90deg, #1a1f2e 15%, #12a512 100%);
+    width: 100%; /* don't need it to be shrunken */
+    flex-shrink: 0; /* stop flexbox from shrinking it */
 }
 
 .close-button{
-    
+    color: white;
 }
 
 /* overwriting default HTML dialog settings */
-.dialog{
+dialog{
+    width: min(500px, 90vw);
+    height: min(600px, 85vh);
+
+    max-width: 90vw; /* dimension settings */
+    max-height: 85vh;
+
+    overflow-y: auto; /* any overflow goes onto the next line */
+
     border: none;
-    padding: 0;
-    background: transparent;
+    padding: 2rem;
+    position: fixed;
+
+    top: 50%;
+    left: 50%; /* account for left and top edges being the origin */
+    transform: translate(-50%, -50%);
+
+    background: #1a1f2e; 
+    border-radius: 15px;
+    color: white; /* simply text color */
+
+    animation: fadeUp 0.3s ease forwards; /* easy entrance animation */
 }
 
 /* transluscent background */

@@ -42,13 +42,19 @@ const Projects = () => {
 
         if (activePopup && popupRefs[activePopup]?.current) {
             popupRefs[activePopup].current.showModal();
+
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth; // grab scrollbar width, ai helped me here            
+            document.body.style.overflow = 'hidden'; // lock scroll
+            document.body.style.paddingRight = `${scrollbarWidth}px`; // compensate for the removed scrollbar
+        } else {
+            document.body.style.overflow = ''; // restore scroll
+            document.body.style.paddingRight = '';
         }
 
     }, [activePopup]); /* runs whenever activePopup is changed */
     
     return(
         <div className = "main-container">
-
             <div className = "intro-container">
                 <h1 className = "project-header">Projects</h1>
                 <hr className = "gradient-line"></hr>
@@ -74,76 +80,88 @@ const Projects = () => {
             {/*----------------------------- INDIVIDUAL POPUPS ---------------------------------------*/}
             {activePopup === "seng-300" && (
                 <dialog ref = {popupRefs["seng-300"]} className = "seng-300">  
-                    <span className = "project-header">SENG300 Course Project</span>
+                    <div className = "pop-container">
+                        <span className = "individual-header">SENG300 Course Project</span>
 
-                    <span className = "separator-line">
-                        <CreateStar className = "fp-star"></CreateStar>
-                        <hr className = "gradient-line"/>
-                    </span>
+                        <div className = "separator-line">
+                            <CreateStar className = "fp-star"></CreateStar>
+                            <hr className = "gradient-line"/>
+                        </div>
 
-                    <div className = "project-descriptor">
-                        <p className = "quick-rundown"></p>
-                        <ul className = "main-skills">
+                        <div className = "project-descriptor">
+                            <p className = "quick-rundown"></p>
+                            <ul className = "main-skills">
 
-                        </ul>
+                            </ul>
+                        </div>
+
+                        <button className = "close-button" onClick = {() => {console.log("clicked"); setActivePopup(null);}}>X</button>
                     </div>
-
-                    <button className = "close-button" onClick = {() => setActivePopup(null)}/>
                 </dialog>
             )}
             
             {activePopup === "portfolio-site" && (
                 <dialog ref = {popupRefs["portfolio-site"]} className = "portfolio-site">
-                    <span className = "project-header">This Website!</span>
+                    <div className = "pop-container">
+                        <span className = "individual-header">This Website!</span>
 
-                    <span className = "separator-line">
-                        <CreateStar className = "fp-star"></CreateStar>
-                        <hr className = "gradient-line"/>
-                    </span>
+                        <div className = "separator-line">
+                            <CreateStar className = "fp-star"></CreateStar>
+                            <hr className = "gradient-line"/>
+                        </div>
 
-                    <div className = "project-descriptor">
-                        <p className = "quick-rundown"></p>
-                        <ul className = "main-skills">
-                            
-                        </ul>
+                        <div className = "project-descriptor">
+                            <p className = "quick-rundown"></p>
+                            <ul className = "main-skills">
+                                
+                            </ul>
+                        </div>
+
+                        <button className = "close-button" onClick = {() => setActivePopup(null)}>X</button>
                     </div>
-
-                    <button className = "close-button" onClick = {() => setActivePopup(null)}/>
                 </dialog>
             )}
 
             {activePopup === "cloud-project" && (
                 <dialog ref = {popupRefs["cloud-project"]} className = "cloud-project">
-                    <span className = "project-header"></span>
+                    <div className = "pop-container">
+                        <span className = "individual-header"></span>
 
-                    <span className = "separator-line">
-                        <CreateStar className = "fp-star"></CreateStar>
-                        <hr className = "gradient-line"/>
-                    </span>
+                        <div className = "separator-line">
+                            <CreateStar className = "fp-star"></CreateStar>
+                            <hr className = "gradient-line"/>
+                        </div>
 
-                    <div className = "project-descriptor">
-                        <p className = "quick-rundown"></p>
-                        <ul className = "main-skills">
-                            
-                        </ul>
+                        <div className = "project-descriptor">
+                            <p className = "quick-rundown"></p>
+                            <ul className = "main-skills">
+                                
+                            </ul>
+                        </div>
+
+                        <button className = "close-button" onClick = {() => setActivePopup(null)}>X</button>
                     </div>
-
-                    <button className = "close-button" onClick = {() => setActivePopup(null)}/>
                 </dialog>
             )}
 
             {activePopup === "undecided-project" && (
                 <dialog ref={popupRefs["undecided-project"]} className="undecided-project">
-                    <span className="project-header">Undecided Project</span>
-                    <span className="separator-line">
-                        <CreateStar className="fp-star"/>
-                        <hr className="gradient-line"/>
-                    </span>
-                    <div className="project-descriptor">
-                        <p className="quick-rundown"></p>
-                        <ul className="main-skills"></ul>
+                    <div className = "pop-container">
+                        <span className="individual-header">Undecided Project</span>
+
+                        <div className="separator-line">
+                            <CreateStar className="fp-star"/>
+                            <hr className="gradient-line"/>
+                        </div>
+
+                        <div className="project-descriptor">
+                            <p className="quick-rundown"></p>
+                            <ul className="main-skills"></ul>
+                        </div>
+
+                        <button className="close-button" onClick={() => setActivePopup(null)}>X</button>
+                        {/* button should be separate but it doesn't really matter here */}
                     </div>
-                    <button className="close-button" onClick={handleClose}/>
                 </dialog>
             )}
         </div>
