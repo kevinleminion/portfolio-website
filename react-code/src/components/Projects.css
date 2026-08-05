@@ -67,7 +67,50 @@
     font-family: 'Nuber Next';
 }
 
+/*----------------------------------------- PROJECT DESCRIPTION -------------------------------------------- */
+.project-descriptor{
 
+}
+
+.main-skills{
+    margin-top: 1rem;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+
+  color: white;
+  background: #1c1c22;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.github-link:hover {
+  background: #2a2a33;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.github-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0; /* stop the icon from getting squished if the link text wraps */
+}
+
+.project-screenshot{
+    
+}
 
 /*----------------------------- BUTTON STUFF ---------------------------------- */
 
@@ -76,12 +119,36 @@
     grid-template-columns: repeat(2, 1fr); /* two columns, evenly sized */
     grid-template-rows: repeat(2, 1fr); /* ditto for rows */
 
-    gap: 3rem;
-    margin-top: 15vh; /* hard coded margin, a bit tired right now */
+    gap: 7rem;
+    margin-top: 15vh; /* margin from the top section */
 }
 
 .generic-button{
+    min-height: 150px; /* allow room for expansion */
+    min-width: 300px; 
+    padding: 1.5rem 1.25rem; /* gaps from border to text */
 
+    font-size: 1.125rem; /* basic font settings */
+    font-weight: 600;
+    text-align: center; 
+    color:white;
+
+    /* simple border */
+    border-radius: 12px;
+    border: 1px solid #2a2a35;
+    background: linear-gradient(135deg, #256625 0%, #12a512 100%);;
+    
+    /* thank you gemini for this section */
+    cursor: pointer;
+    touch-action: manipulation; /* Removes tap delay on mobile devices */
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* very simple transition */
+    /* grow, add a shadow, and change color */
+}
+
+.generic-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px #256625
 }
 
 .close-button{
@@ -120,6 +187,8 @@
     display: flex;
     flex-direction: row; /* so the star and the line are next to each other */
     flex-wrap:nowrap;
+
+    margin-top: 0.5rem;
 }
 
 /* only the gradient line that is nested in separator line */
@@ -135,7 +204,7 @@
 
 /* overwriting default HTML dialog settings */
 dialog{
-    width: min(500px, 90vw);
+    width: min(900px, 90vw);
     height: min(600px, 85vh);
 
     max-width: 90vw; /* dimension settings */
