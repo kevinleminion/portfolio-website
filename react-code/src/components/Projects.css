@@ -44,7 +44,7 @@
 
 /*------------------------------- INTRO SECTION ---------------------------------------- */
 .intro-container{
-    height: 25vh; /* take up 25% of space */
+    min-height: 25vh; /* take up 25% of space */
 
     display:flex; /* flex settings for the container */
     flex-direction: column;
@@ -230,4 +230,25 @@ dialog{
 /* transluscent background */
 dialog::backdrop {
     background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px){
+    .intro-container{
+        margin-inline: 0;
+        max-width: 100vw;
+    }
+
+    .main-container{
+        min-height: 100vh; /* allow space for expansion */
+
+        display: flex;
+        flex-direction: column;
+        align-items: start; /* basic flexbox setup */
+        justify-content: flex-start;
+        gap: 4rem; 
+    }
+
+    .project-header{
+        font-size: 2.25rem;
+    }
 }
