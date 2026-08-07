@@ -1,31 +1,31 @@
 /* class for recreating a dropdown menu */
-@keyframes fadeIn { /* effect when switching elements */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px); /* tiny rise effect */
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* container, will do more when hovered over */ 
+
 .game-container{
     margin-top: 3rem;
     border-radius: 15px;
     background: #382B46;
-    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4); /* game container parameters */
-    position: absolute; /* shouldn't affect anything else */
+    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4);
+    position: absolute;
 
     margin-inline: 3rem;
-    width: 400px; /* set width and left/right margin */
-    max-height: 50px; /* set initial height until hovered over */
-    transition: max-height 0.3s ease; /* max-height transition based on hover */
+    width: 400px;
+    max-height: 50px;
+    transition: max-height 0.3s ease;
     overflow: hidden;
 }
 
 .game-container:hover{
-    max-height: 500px; /* simply what is linked to the transition */
+    max-height: 500px;
 }
 
 .game-list{
@@ -33,95 +33,85 @@
     font-style: italic;
     font-family: 'Barlow Regular';
     font-size: 1.5rem;
-
-    margin-top: 5px;    
-    /* dictates the container and base rules, nothing else */
+    margin-top: 5px;
 }
 
 .game-list li{
     margin-top: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* almost transparent border line */
-    animation: slideUp 0.3s ease forwards; /* animation for each list item to use */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    animation: slideUp 0.3s ease forwards;
 }
 
 .game-list li:nth-child(1) { animation-delay: 0.05s; }
-.game-list li:nth-child(2) { animation-delay: 0.10s; } /* make each item appear one by one */
-.game-list li:nth-child(3) { animation-delay: 0.15s; }  
+.game-list li:nth-child(2) { animation-delay: 0.10s; }
+.game-list li:nth-child(3) { animation-delay: 0.15s; }
 .game-list li:nth-child(4) { animation-delay: 0.20s; }
 .game-list li:nth-child(5) { animation-delay: 0.25s; }
 
-/* whenever you hover over a list item */
 .game-list li:hover{
     scale: 1.15;
-    color: #FFFFFF; /* effectively the same as the hyperlinks on the navbar */
-    
+    color: #FFFFFF;
     text-shadow: 0 0 6px #FFFFFF;
 }
 
 .game-details{
-    position: absolute; 
+    position: absolute;
     margin-top: 3rem;
-    left: 30%; /* positioning */
+    left: 30%;
 
-    width: 1000px; /* size of the detail box */
-    height: 260px; 
+    width: 1000px;
+    height: 260px;
 
-    margin-top: 3rem;
-    border-radius: 15px; /* appearance settings copied over */
+    border-radius: 15px;
     background: #382B46;
-    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4); 
-    position: absolute; /* shouldn't affect anything else */
+    box-shadow: 7px 7px 3px rgba(56, 43, 70, 0.4);
 
     opacity: 0;
-    visibility: hidden; /* hide by default */
-    pointer-events: none; /* prevent mouse interactions */
+    visibility: hidden;
+    pointer-events: none;
 
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* opacity and visibility transitions */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* make the details visible when hovered over */
 .game-details.visible{
     opacity: 1;
     visibility: visible;
-    pointer-events: auto; /* allow mouse clicks */
+    pointer-events: auto;
 }
 
-/* template for the game itself, they should all be roughly the same */
 .game-page{
-    animation: fadeIn 0.25s ease-out forwards; /* run the animation each time the "page" is rendered */
+    animation: fadeIn 0.25s ease-out forwards;
     display: grid;
-    grid-template-columns: 2fr 5fr; /* rough 1:5 split */
-    grid-template-rows: 1fr; /* singular row, so its just a left and a right */
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr;
 
-    gap: 20px; /* Spacing between columns */
+    gap: 20px;
     height: 100%;
 }
 
-.game-image{ /* image settings */
+.game-image{
     max-width: 100%;
-    max-height: 100%; 
-       
+    max-height: 100%;
+
     object-fit: contain;
-    display:block; /* contain in the container */
+    display:block;
 
     border-radius: 8px;
-    overflow: hidden; /* rounded borders */
+    overflow: hidden;
 }
 
-/* wrapper box for the image, i.e the container for the image and nothing more */
 .image-wrapper {
     width: 100%;
-    height: calc(100% - 2rem); /* base settings, account for margin */
+    height: calc(100% - 2rem);
     margin-block: 1rem;
-    margin-inline: 4rem; /* spacing from the edges */
+    margin-inline: 4rem;
 
-    overflow: hidden; /* clips the image to the wrapper's rounded shape */
-    background: #382B46; /* matches .game-container to blend in */
+    overflow: hidden;
+    background: #382B46;
     display: flex;
-    justify-content: start; /* Pushes the image to the far left of the 40% cell */
+    justify-content: start;
 }
 
-/* simply the container for the text */
 .text-wrapper{
     display:flex;
     flex-direction: column;
@@ -130,12 +120,56 @@
     margin: 1rem;
 }
 
-/* game rating at the very end */
 .game-rating{
     font-size:large;
     color: #9A9A84;
-
     font-family: 'Hiragino Mincho';
 }
 
+/* ============================= MOBILE ============================= */
+@media (max-width: 768px) {
+    .game-container {
+        width: 90vw;
+        margin-inline: auto;
+        position: relative; /* no longer floats over content */
+        left: auto;
+    }
 
+    .game-details {
+        position: static;
+        width: 90vw;
+        height: auto;
+        max-height: none;
+        margin: 1.5rem auto 0;
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        display: none; /* toggled below via .visible */
+        transition: none;
+    }
+
+    .game-details.visible {
+        display: block;
+    }
+
+    .game-page {
+        grid-template-columns: 1fr; /* stack image above text */
+        grid-template-rows: auto auto;
+    }
+
+    .image-wrapper {
+        margin-inline: 0;
+        height: 200px;
+        justify-content: center;
+    }
+
+    .text-wrapper {
+        margin: 0.5rem 1rem 1rem;
+    }
+
+    .game-list {
+        font-size: 1.2rem;
+    }
+}

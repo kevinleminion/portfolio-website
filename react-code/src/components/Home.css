@@ -53,10 +53,17 @@ Container for the image and the image and its header, as they should come into v
     /* 8rem padding to move it away from the border */
 }
 
-.home-image{
+.home-image {
+    margin: 0;
     height: auto;
     max-width: 100%;
     animation: imgRotate 4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.home-image img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .home-image-header{
@@ -159,4 +166,54 @@ Container for the image and the image and its header, as they should come into v
     transition: scale 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
 }
 
+/*-------------------------------- MOBILE LAYOUT --------------------------- */
+
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        min-height: auto;
+        gap: 3rem;
+    }
+
+    .home-content {
+        flex: none;
+        width: 100%;
+        padding-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image-container {
+        width: 100%;
+        padding-right: 0;
+        align-items: center;
+    }
+
+    .home-header {
+        font-size: 2.25rem;
+    }
+
+    .home-content p {
+        font-size: 1.15rem;
+    }
+
+    .home-image-header {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    .social-links svg {
+        font-size: 2.5rem;
+    }
+}
 

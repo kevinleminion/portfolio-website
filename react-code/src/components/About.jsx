@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './About.css';
 import Dropdown from './Dropdown';
 
 const About = () => {
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    // simple check to see if the user is on mobile
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <div className="about-container">
             <div className="about-quote">
@@ -21,8 +30,11 @@ const About = () => {
                 </h2>
                 <div className = "divider"></div>
                 <h2>
-                    Cloud computing and cybersecurity to me are the more interesting fields of computer science, and while I do 
-                    still appreciate the intricacies of general software engineering, I don't find it to be as compelling.
+                    {isMobile
+                        ? "I'm drawn to cloud computing and cybersecurity over general software engineering, though I find software engineering to be compelling in its own right."
+                        : "Cloud computing and cybersecurity to me are the more interesting fields of computer science, and while I do still appreciate the intricacies of general software engineering, I don't find it to be as compelling."
+                    }
+                    
                 </h2>
             </div>
             <Dropdown/>
