@@ -165,3 +165,18 @@
     animation: specificSlide 0.7s ease forwards; /* slide in */
 }
 
+@media (max-width: 768px) {
+    .load-indicator-wrapper {
+        margin: 0.5rem;
+    }
+    .load-indicator {
+        width: 45px;
+        height: 45px;
+    }
+    .loading-text {
+        font-size: 1.4rem;
+    }
+    .okay-sign {
+        font-size: 2rem;
+    }
+}
