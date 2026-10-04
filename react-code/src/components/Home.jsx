@@ -12,7 +12,7 @@ const Home = () => {
                 </h1>
                 <hr className = "separator-line"/> 
                 <p className = "self-intro">
-                    Naturally curious solitude freak traversing life one day at a time.
+                    Naturally curious loner traversing life one day at a time.
                 </p>
                 <p className = "professional-goals">
                     I'm a computer science student fascinated about modern cloud infrastructure and the incredible capacity it brings for GitOps automation.
@@ -33,7 +33,7 @@ const Home = () => {
                     <img src={jackpotImg} alt="Jackpot" />
                 </figure>
                 <h1 className="home-image-header">
-                    "I may be racist, but you were mean and that's worse."
+                    "This party's getting crazy, let's rock!"
                 </h1>
             </div>
         </div>
