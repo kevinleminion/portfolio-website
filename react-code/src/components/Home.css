@@ -113,7 +113,7 @@ Container for the image and the image and its header, as they should come into v
 
 
 .home-content{
-    padding-left: 5rem;
+    padding: 5rem;
     flex: 2;
     /* Flex of 2 allows it to take up more space */
 
